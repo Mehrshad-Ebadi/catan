@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101d2b">
+  <title>Hex Harbor · Online strategy game</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="ambient ambient-left"></div><div class="ambient ambient-right"></div>
+  <header class="topbar">
+    <a href="/" class="brand" aria-label="Hex Harbor home"><span class="brand-mark">⬡</span><span>HEX <b>HARBOR</b></span></a>
+    <div class="topright"><span class="online-dot"></span><span>ONLINE TABLETOP</span><span class="topsep">/</span><span>UP TO 6 PLAYERS</span></div>
+  </header>
+  <main>
+    <section id="home" class="home wrap">
+      <div class="homecopy">
+        <div class="eyebrow"><span class="thin-line"></span> YOUR NEXT GAME NIGHT</div>
+        <h1>Build an empire.<br><em>Outtrade</em> your rivals.</h1>
+        <p class="intro">A live, six-player hex-island strategy game. Claim land, roll for resources, build settlements, negotiate trades, and race to <strong>10 victory points</strong>.</p>
+        <div class="stats"><div><b>6</b><span>PLAYERS MAX</span></div><div><b>30</b><span>LAND HEXES</span></div><div><b>10</b><span>POINTS TO WIN</span></div></div>
+        <div class="rules-note">Original artwork and streamlined Catan-style rules. No account required.</div>
+      </div>
+      <div class="entry card">
+        <div class="entry-head"><span class="mini-hex">⬡</span><div><div class="entry-kicker">THE GAME LOBBY</div><h2>Take a seat.</h2></div></div>
+        <label for="name">YOUR PLAYER NAME</label><input id="name" maxlength="22" placeholder="e.g. Captain Morgan" autocomplete="nickname" spellcheck="false">
+        <button id="create" class="btn btn-primary full">Create a new room <span>↗</span></button>
+        <div class="join-divider"><span></span>OR JOIN FRIENDS<span></span></div>
+        <label for="code">SIX-CHARACTER ROOM CODE</label><input id="code" maxlength="6" placeholder="ABC123" autocapitalize="characters" spellcheck="false">
+        <button id="join" class="btn btn-outline full">Join an existing room <span>→</span></button>
+        <p class="tinytext">Share your room link with friends. Everyone plays in their own browser, from anywhere.</p>
+      </div>
+      <div class="home-ornament" aria-hidden="true"><span>⬡</span><span>⬡</span><span>⬡</span></div>
+    </section>
+    <section id="game" class="game wrap" hidden>
+      <div class="gametitle">
+        <div><div class="eyebrow small">THE ISLAND IS YOURS TO CONQUER</div><h1>THE <em>HARBOR</em> <span class="roomtag" id="roomtag">------</span></h1></div>
+        <div class="invitebar"><span id="connected" class="connected">● LIVE</span><button class="btn btn-slim" id="copy">Copy invite link <span>↗</span></button><button class="btn btn-ghost btn-slim" id="leave">Leave view</button></div>
+      </div>
+      <div id="lobby" class="lobby card" hidden></div>
+      <div id="playArea" class="layout" hidden>
+        <section class="map-panel card">
+          <div class="map-header"><div><div class="panel-eyebrow">THE PLAYING FIELD</div><h2 id="turnline">YOUR TURN</h2></div><div class="rollpill" id="dice">🎲 —</div></div>
+          <div class="game-notice" id="notice"></div>
+          <div class="map-shell"><svg id="map" viewBox="126 113 748 578" role="img" aria-label="Hex island board. Click glowing intersections or roads to build."></svg></div>
+          <div class="map-footer"><span>● <b>Glowing markers</b> = available moves</span><span>⬡ <b>Click a tile</b> to move the robber</span></div>
+        </section>
+        <aside class="sidebar">
+          <section class="card sidebar-section"><div class="sectionheading"><span>01 /</span> PLAYERS <small id="seats"></small></div><div id="playerList" class="playerlist"></div></section>
+          <section class="card sidebar-section"><div class="sectionheading"><span>02 /</span> YOUR HAND <small id="handTotal"></small></div><div id="resources" class="resources"></div><div id="devList" class="dev-list"></div></section>
+          <section class="card sidebar-section" id="actionSection"><div class="sectionheading"><span>03 /</span> TAKE ACTION</div><div id="actions"></div></section>
+        </aside>
+      </div>
+      <section id="bottom" class="bottom" hidden>
+        <div class="card guide"><div class="sectionheading"><span>04 /</span> THE RULES AT A GLANCE</div><p>Collect resources when numbered tiles match the dice. Place settlements two intersections apart and connect them to your roads. Build, trade, or buy development cards. First to <strong>10 VP</strong> wins.</p><div class="guide-costs"><span>🛤️ Road: 🪵 🧱</span><span>🏠 Settlement: 🪵 🧱 🐑 🌾</span><span>🏰 City: ⛏️×3 🌾×2</span><span>✨ Dev card: ⛏️ 🌾 🐑</span></div></div>
+        <div class="card chat"><div class="sectionheading"><span>05 /</span> TABLE TALK & EVENTS</div><div id="feed" class="feed" aria-live="polite"></div><form id="chatForm" class="chatForm"><input id="chatInput" placeholder="Talk to the table…" maxlength="180" autocomplete="off" aria-label="Chat message"><button class="btn btn-primary btn-slim" type="submit">Send</button></form></div>
+      </section>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

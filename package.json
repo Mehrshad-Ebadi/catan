@@ -1,0 +1,11 @@
+{
+  "name": "hex-harbor-online",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A six-player online hex settlement and trading game. No npm dependencies.",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": {"node": ">=18"}
+}
